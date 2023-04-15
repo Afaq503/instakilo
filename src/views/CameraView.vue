@@ -1,13 +1,24 @@
 <template>
-  <h1>This is a Camera Page</h1>
-  <p>
-    dafhsjdkfjaksjdfioj dfsajsoidjfoiijksa foikjasopfk oisdjkfoij aid ospdf
-    poiajdfopis jfoijsa adopifj podajf a asdpodf pojdsopaf
-  </p>
+  <div class="container">
+    <div class="camerascreen">
+      <h2>This is camera Screen</h2>
+    </div>
+  </div>
 </template>
 
 <script>
 export default {};
 </script>
 
-<style></style>
+<style>
+.container {
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+}
+.camerascreen {
+  width: 800px;
+  height: 300px;
+  border: 1px solid red;
+}
+</style>
