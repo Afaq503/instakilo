@@ -1,6 +1,8 @@
 <template>
   <div>
+    <h2>This is Camera and now you click pic</h2>
     <video ref="video">Streming is unavialble</video>
+    <canvas ref="canvas" style="display: none" />
   </div>
 </template>
 
@@ -27,6 +29,7 @@ export default {
   data() {
     return {
       video: null,
+      canvas: null,
     };
   },
 };
