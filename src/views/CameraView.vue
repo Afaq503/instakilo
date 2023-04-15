@@ -1,7 +1,8 @@
 <template>
   <div>
     <h2>This is Camera and now you click pic</h2>
-    <video ref="video">Streming is unavialble</video>
+    <video @canplay="initCanvas()" ref="video">Streming is unavialble</video>
+    <button @click="takePicture()">Click Picture</button>
     <canvas ref="canvas" style="display: none" />
   </div>
 </template>
@@ -11,6 +12,7 @@ export default {
   name: "camera",
   mounted() {
     this.video = this.$refs.video;
+    this.canvas = this.$refs.canvas;
     this.startCapture();
   },
   methods: {
@@ -24,6 +26,14 @@ export default {
         .catch((error) => {
           console.log(error);
         });
+    },
+    initCanvas() {
+      this.canvas.setAttribute("width", this.video.videoWidth);
+      this.canvas.setAttribute("height", this.video.videoHeight);
+    },
+    takePicture() {
+      let context = this.canvas.getContext("2d");
+      context.$emit("picture-taken", this.canvas.toDataUrl("image/png"));
     },
   },
   data() {
